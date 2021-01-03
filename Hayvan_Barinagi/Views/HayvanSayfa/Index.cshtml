@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Hayvan_Barinagi.Controllers.HayvanDTO>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="container">
+    <br />
+    <h1>Hayvan Dostlarımız</h1>
+    <br />
+    @foreach (var item in Model)
+    {
+
+        <div class="row">
+            <div class="col-3">
+                <img src="@item.Fotograf" class="d-block w-100 h-100">
+            </div>
+            <div class="col-6">
+                <h2>@item.Ad</h2>
+                <p><b>Cinsi: </b>@item.Cins</p>
+                <p><b>Cinsiyeti: </b>@item.Cinsiyet</p>
+                <p><b>Doğum Yılı: </b>@item.DogumYili</p>
+                <form asp-area="" asp-controller="Sahiplen" asp-action="Index">
+                    <button class="btn btn-success">Sahiplen</button>
+                </form>
+            </div>
+        </div>
+        <br />
+    }
+
+</div>

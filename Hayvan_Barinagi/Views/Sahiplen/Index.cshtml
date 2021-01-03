@@ -1,0 +1,120 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Kullanici> SignInManager
+@inject UserManager<Kullanici> UserManager
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+<div>
+    <br />
+    <h1 class="text-warning">Sahiplenmenin İşleyişi</h1>
+    <p>
+        Aşağıda formu doldurmanız ve aşağıdaki belgeleri de alarak mail üzerinden oluşturacağımız randevu ile barınağımıza gelmelisiniz.<br />
+        Köpek veya kedinin yaşayacağı mekanı gösteren, içinde sizinde bulunduğunuz fotoğraflar<br />
+        Ev için sahiplenecekseniz; isminize kayıtlı adresi gösteren ikametgah; su, telefon, elektrik faturası gibi sizin hakkınızda bilgi verebilecek en az iki referans.<br />
+        İş yeri için sahiplenecekseniz; vergi levhası.<br />
+        Barınağımıza gelmeden önce bu sayfada yazan metinlerin hepsini mutlaka okumuş olmanız gerekmektedir.<br />
+    </p>
+</div>
+<div>
+    <h5 class="text-warning">Barınağımıza hayvan sahiplenmeye gelmeden önce mutlaka okunması gerekenler:</h5>
+    <p>
+        Video veya fotoğraf yeterli gelmemesi durumunda yeriniz yakından görülüp tektik edilir.<br />
+        Dostlarımızın tekrar terk edilmeyeceklerine ve iyi bakılacaklarına dair yeterli bilgiye sahip olunduktan sonra sahiplendirme işlemi gerçekleştirilir.<br />
+        Dostlarımız sahiplendirildikten sonra düzenli aralıklarla fotoğraf ya da ziyaret yöntemiyle kontrol edilir.<br />
+        Şehir dışına sahiplendirilme yapılmamaktadır<br />
+        Ziyaret saatlerimiz haftanın yedi günü 10.30-15:00 arasıdır. Sahiplenme için mutlaka randevu ile gelinmelidir.<br />
+    </p>
+</div>
+<form method="post">
+
+    <table style="border:solid">
+        <tr>
+            <td>Cep Telefonu:</td>
+            <td colspan="4"><input type="text" required></td>
+        </tr>
+        <tr>
+            <td>Adres:</td>
+            <td colspan="4"><textarea name="gorus" id="gorus"></textarea></td>
+        </tr>
+        <tr>
+            <td>Sahiplenmek istediğiniz hayvanın yaşam alanı neresi olacak?</td>
+            <td>
+                <input type="radio">Ev
+            </td>
+            <td>
+                <input type="radio">İş yeri
+            </td>
+            <td colspan="2">
+                <input type="radio">Diğer
+            </td>
+
+        </tr>
+        <tr>
+            <td>Daha önce hayvan beslediniz mi?</td>
+            <td>
+                <input type="radio">Evet
+            </td>
+            <td colspan="3">
+                <input type="radio">Hayır
+            </td>
+        </tr>
+        <tr>
+            <td>Halihazırda sorumluluğunuzdaki hayvanlar hangileri?</td>
+            <td>
+                <input type="checkbox">Köpek
+            </td>
+            <td>
+                <input type="checkbox">Kedi
+            </td>
+            <td>
+                <input type="checkbox">Balık
+            </td>
+            <td>
+                <input type="checkbox">Diğer
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="5"> <input type="checkbox" required> &emsp;Barınağınızdan sahiplenmiş olduğum hayvana bakamama durumunda tekrar size iade edeceğimi kabul ediyorum.</td>
+        </tr>
+        <tr>
+            <td colspan="5"><input type="checkbox" required>&emsp; Barınağınızdan sahiplenmiş olduğum hayvan kaza geçirirse veya hastalanırsa veterinere götüreceğimi ve tedavi ettireceğimi kabul ediyorum.&emsp;</td>
+        </tr>
+        <tr>
+            <td style="text-align:center" colspan="5">
+                <button class="btn btn-secondary">Gönder</button>
+            </td>
+        </tr>
+    </table>
+   
+
+    
+
+
+   
+</form>
+
+
+}
+else
+{
+    <div style="text-align:center; margin-top:10%">
+        <p>
+            Bir hayvan dostumuzu sahiplenmek için siteye üye olmalısınız.
+        </p>
+        <form asp-area="Identity" asp-page="/Account/Register">
+            <button type="submit">Üye Ol</button>
+        </form>&emsp;
+
+
+        <form asp-area="Identity" asp-page="/Account/Login">
+            <button type="submit">Giriş Yap</button>
+        </form>
+        <br />
+
+
+        <a href='javascript:history.go(-1)'>Geri Dön</a>
+    </div>
+
+}

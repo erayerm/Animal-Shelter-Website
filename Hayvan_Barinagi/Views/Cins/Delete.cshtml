@@ -1,0 +1,26 @@
+﻿@model Hayvan_Barinagi.Models.Cins
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Delete";
+}
+<br />
+
+<h3>@Localizer["Mesaj"]</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Localizer["CinsAd"]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CinsAd)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@Localizer["Sil"]" class="btn btn-danger" /> |
+        <a asp-action="Index">@Localizer["ListeyeGeriDon"]</a>
+    </form>
+</div>

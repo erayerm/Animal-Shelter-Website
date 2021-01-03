@@ -1,0 +1,59 @@
+﻿@model Hayvan_Barinagi.Models.Hayvan
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Hayvan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label"></label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DogumYili" class="control-label"></label>
+                <input asp-for="DogumYili" class="form-control" />
+                <span asp-validation-for="DogumYili" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fotograf" class="control-label"></label>
+                <input asp-for="Fotograf" class="form-control" />
+                <span asp-validation-for="Fotograf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TurID" class="control-label"></label>
+                <select asp-for="TurID" class="form-control" asp-items="ViewBag.TurID"></select>
+                <span asp-validation-for="TurID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CinsID" class="control-label"></label>
+                <select asp-for="CinsID" class="form-control" asp-items="ViewBag.CinsID"></select>
+                <span asp-validation-for="CinsID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CinsiyetID" class="control-label"></label>
+                <select asp-for="CinsiyetID" class="form-control" asp-items="ViewBag.CinsiyetID"></select>
+                <span asp-validation-for="CinsiyetID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

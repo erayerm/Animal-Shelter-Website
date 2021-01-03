@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Hayvan_Barinagi.Models.Hayvan>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<br />
+<div style="text-align:center">
+    <h1>Hoşgeldiniz</h1>
+    <img src="~/images/sayfa/anasayfa.jpg" alt="anasayfa main" />
+</div>
+
+
+<h1 class="my-4">Hayvanlarımız</h1>
+<div class="row">
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <h4 class="card-header">Kediler</h4>
+            <div class="card-body">
+                <p class="card-text">Barınağımızdaki kedileri görüntülemek için tıklayın.</p>
+            </div>
+            <div class="card-footer" style="text-align:center">
+                <form asp-area="" asp-controller="Kedi" asp-action="Index">
+                    <button class="btn btn-success">Görüntüle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <h4 class="card-header">Köpekler</h4>
+            <div class="card-body">
+                <p class="card-text">Barınağımızdaki köpekleri görüntülemek için tıklayın.</p>
+            </div>
+            <div class="card-footer" style="text-align:center">
+                <form asp-area="" asp-controller="Kopek" asp-action="Index">
+                    <button class="btn btn-success">Görüntüle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+            <h4 class="card-header">Hepsi</h4>
+            <div class="card-body">
+                <p class="card-text">Barınağımızdaki bütün hayvanları görüntülemek için tıklayın.</p>
+            </div>
+            <div class="card-footer" style="text-align:center">
+                <form asp-area="" asp-controller="HayvanSayfa" asp-action="Index">
+                    <button class="btn btn-success">Görüntüle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

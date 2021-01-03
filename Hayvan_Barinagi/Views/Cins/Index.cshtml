@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Hayvan_Barinagi.Models.Cins>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<p>
+    <a asp-action="Create">@Localizer["YeniKayitOlustur"]</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Localizer["CinsAd"]
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CinsAd)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@Localizer["Duzenle"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@Localizer["Detaylar"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">@Localizer["Sil"]</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
